@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.example.todo.constant.SecurityConstant.REGISTER_URL;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -16,7 +18,7 @@ public class AuthController {
 
     private final UserService userService;
 
-    @PostMapping("/register")
+    @PostMapping(REGISTER_URL)
     public ResponseEntity register(@RequestBody User user) {
         try {
             userService.save(user);
